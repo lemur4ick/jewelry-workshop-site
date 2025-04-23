@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ювелирная мастерская</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+      <div class="container">
+        <!-- Логотип (пока — текстом) -->
+        <div class="logo">Ювелирная Мастерская</div>
+        <!-- Навигация -->
+        <nav>
+            <ul class="nav-list">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog/index.html">Каталог</a></li>
+              <li><a href="custom/index.html">Изготовление на заказ</a></li>
+              <li><a href="portfolio/index.html">Наши работы</a></li>
+              <li><a href="about.html">О компании</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>          
+      </div>
+    </header>
+  
+    <main>
+        <section class="hero-slider">
+          <div class="slide active">
+            <img src="images/hero-1.jpg" alt="Украшение 1">
+            <div class="overlay">
+              <h1>Эксклюзивные украшения на каждый день</h1>
+              <a href="catalog/index.html" class="btn">Смотреть каталог</a>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="images/hero-2.jpg" alt="Украшение 2">
+            <div class="overlay">
+              <h1>Индивидуальный дизайн по вашему эскизу</h1>
+              <a href="custom/index.html" class="btn">Заказать звонок</a>
+            </div>
+          </div>
+          <!-- точки-навигация -->
+          <div class="dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+          </div>
+        </section>
+        <!-- Блок «Воплотим идею» -->
+<section class="ideas">
+    <div class="container">
+      <h2>Воплотим идею…</h2>
+      <div class="ideas-list">
+        <div class="idea-item">
+          <!-- замените на свою иконку -->
+          <img src="images/idea-1.svg" alt="По вашей авторской идее">
+          <h3>По вашей авторской идее</h3>
+        </div>
+        <div class="idea-item">
+          <img src="images/idea-2.svg" alt="На основании фото или рисунка">
+          <h3>На основании фото или рисунка</h3>
+        </div>
+        <div class="idea-item">
+          <img src="images/idea-3.svg" alt="По образцу из нашего каталога">
+          <h3>По образцу из нашего каталога</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Блок «Преимущества» -->
+<section class="advantages">
+    <div class="container">
+      <h2>Почему выбирают нас</h2>
+      <div class="advantages-list">
+        <div class="advantage-item">
+          <img src="images/adv-1.svg" alt="Эксклюзивный дизайн">
+          <h3>Эксклюзивный дизайн</h3>
+          <p>Каждое изделие разрабатываем индивидуально под вас.</p>
+        </div>
+        <div class="advantage-item">
+          <img src="images/adv-2.svg" alt="Официальное оформление">
+          <h3>Официальное оформление</h3>
+          <p>Заключаем договор и выдаём все необходимые документы.</p>
+        </div>
+        <div class="advantage-item">
+          <img src="images/adv-3.svg" alt="Пожизненная гарантия">
+          <h3>Пожизненная гарантия</h3>
+          <p>Гарантируем качество на весь срок эксплуатации.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA «Обсудить идею» -->
+<section class="cta-discuss">
+    <div class="container">
+      <h2>Готовы обсудить вашу идею?</h2>
+      <p>Оставьте свои контактные данные, и мы свяжемся с вами в ближайшее время.</p>
+      <form class="cta-form" action="#" method="post">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <button type="submit" class="btn">Оставить заявку</button>
+      </form>
+    </div>
+  </section>
+  
+        <!-- тут далее будут другие блоки -->
+      </main>      
+  
+    <footer>
+      <div class="container">
+        © 2025 Ювелирная Мастерская. Все права защищены.
+      </div>
+    </footer>
+    <script>
+        const slides = document.querySelectorAll('.hero-slider .slide');
+        const dots   = document.querySelectorAll('.hero-slider .dot');
+        let current  = 0;
+      
+        function showSlide(idx) {
+          slides.forEach((s,i) => {
+            s.classList.toggle('active', i === idx);
+            dots[i].classList.toggle('active', i === idx);
+          });
+        }
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            current = parseInt(dot.dataset.slide);
+            showSlide(current);
+          });
+        });
+        // автоплей каждую 5с
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 5000);
+      </script>      
+  </body>  
+</html>
